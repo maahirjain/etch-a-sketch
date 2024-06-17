@@ -12,3 +12,5 @@ The webpage's features include:
 - Clearing the grid
 
 <img src="./screenshots/gridlines_screenshot.png" alt="Buzz Sketch with grid lines" width="400px"><img src="./screenshots/nogridlines_screenshot.png" alt="Buzz Sketch without grid lines" width="400px">
+
+The screenshots above portray a drawing of the incredible [Buzz](https://ramblinwreck.com/buzz/)!
