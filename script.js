@@ -23,7 +23,8 @@ function createGrid(gridSide) {
     
         for (let i = 0; i < gridSide; i++) {
             let div = document.createElement("div");
-            let side = (546 - 2 * gridSide)/gridSide;
+            let vw = window.getComputedStyle(document.querySelector("body"), null).getPropertyValue("width");
+            let side = (0.36 * +vw.substring(0, vw.length - 2) - 2 * gridSide)/gridSide;
             div.style.width = `${side}px`;
             div.style.height = `${side}px`;
             haveGridLines ? div.style.border = "1px solid black" : div.style.border = "1px solid white";
