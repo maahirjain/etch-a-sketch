@@ -1,10 +1,11 @@
 let input = document.querySelector("input");
 let checkbox = document.querySelector("#grid-lines");
+let colorPicker = document.querySelector("#color-picker");
 let haveGridLines = true;
 let grid = document.querySelector(".grid");
 let gridChildren;
 let startColoring = false;
-let color = "black";
+let color = colorPicker.value;
 
 function createGrid(gridSide) {
     grid.remove();
@@ -28,11 +29,12 @@ function createGrid(gridSide) {
     
         grid.appendChild(divContainer);
         gridChildren = Array.from(grid.getElementsByTagName('*'));
+        colorPicker.addEventListener("change", () => { color = colorPicker.value; });
 
         grid.addEventListener("mousedown", (e) => {
             startColoring = true;
+            color = colorPicker.value;
             e.target.style.backgroundColor = color; 
-            e.target.classList.add(color);
             e.target.style.borderColor = color;
         })
         
@@ -46,7 +48,6 @@ function createGrid(gridSide) {
              div.addEventListener("mouseenter", () => {
                  if (startColoring) { 
                     div.style.backgroundColor = color; 
-                    div.classList.add(color);
                     div.style.borderColor = color;
                 } 
              });
@@ -68,9 +69,12 @@ checkbox.addEventListener("change", () => {
         grid.style.border = "1px solid black";
         gridChildren.forEach(div => { return div.style.borderColor = "black"; });
     } else {
+        color = colorPicker.value;
         haveGridLines = false;
         grid.style.border = "2px solid black";
-        gridChildren.forEach(div => { div.style.borderColor = div.classList.contains(color) ? color : "white"; });
+        gridChildren.forEach(div => { div.style.borderColor = window.getComputedStyle(div, null).getPropertyValue("background-color"); });
     }
 });
+
+
 
