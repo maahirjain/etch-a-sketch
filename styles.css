@@ -22,11 +22,47 @@ body {
 }
 
 .footer {
-    background-color: darkgrey;
+    background-color: gray;
 }
 
 .sketch-area {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 32px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+.grid-size {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #3b3b3b;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+p {
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+input {
+    accent-color: gray;
+}
+
+label {
+    color: black;
+}
+
+.grid {
+    display: flex;
 }
