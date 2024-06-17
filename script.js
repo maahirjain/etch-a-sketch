@@ -1,12 +1,13 @@
 let input = document.querySelector("input");
 let checkbox = document.querySelector("#grid-lines");
+let haveGridLines = true;
 
 function createGrid(gridSide) {
     document.querySelector(".grid").remove();
 
     let grid = document.createElement("div");
     grid.classList.add("grid");
-    grid.style.border = "1px solid black";
+    haveGridLines ? grid.style.border = "1px solid black" : grid.style.border = "2px solid black";
     document.querySelector(".sketch-area").appendChild(grid);
 
     for (let i = 0; i < gridSide; i++) {
@@ -17,7 +18,7 @@ function createGrid(gridSide) {
             let side = (546 - 2 * gridSide)/gridSide;
             div.style.width = `${side}px`;
             div.style.height = `${side}px`;
-            div.style.border = "1px solid black";
+            haveGridLines ? div.style.border = "1px solid black" : div.style.border = "1px solid white";
             divContainer.appendChild(div);
         }
     
@@ -35,9 +36,11 @@ input.addEventListener("input", () => {
 checkbox.addEventListener("change", () => {
     let gridChildren = Array.from(document.querySelector(".grid").getElementsByTagName('*'));
     if (checkbox.checked) {
+        haveGridLines = true;
         document.querySelector(".grid").style.border = "1px solid black";
         gridChildren.forEach(div => { return div.style.borderColor = "black"; });
     } else {
+        haveGridLines = false;
         document.querySelector(".grid").style.border = "2px solid black";
         gridChildren.forEach(div => { return div.style.borderColor = "white"; });
     }
