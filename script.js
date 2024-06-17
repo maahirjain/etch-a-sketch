@@ -31,6 +31,8 @@ function createGrid(gridSide) {
         grid.addEventListener("mousedown", (e) => {
             startColoring = true;
             e.target.style.backgroundColor = "black"; 
+            e.target.classList.add("black");
+            e.target.style.borderColor = "black";
         })
         
         grid.addEventListener("mouseup", (e) => {
@@ -41,7 +43,11 @@ function createGrid(gridSide) {
             let containerChildren = Array.from(container.getElementsByTagName('*'));
             containerChildren.forEach(div => {
              div.addEventListener("mouseenter", () => {
-                 if (startColoring) { div.style.backgroundColor = "black"; } 
+                 if (startColoring) { 
+                    div.style.backgroundColor = "black"; 
+                    div.classList.add("black");
+                    div.style.borderColor = "black";
+                } 
              });
             })
         });
@@ -63,7 +69,7 @@ checkbox.addEventListener("change", () => {
     } else {
         haveGridLines = false;
         grid.style.border = "2px solid black";
-        gridChildren.forEach(div => { return div.style.borderColor = "white"; });
+        gridChildren.forEach(div => { div.style.borderColor = div.classList.contains("black") ? "black" : "white"; });
     }
 });
 
