@@ -1,11 +1,14 @@
 let input = document.querySelector("input");
 let checkbox = document.querySelector("#grid-lines");
 let colorPicker = document.querySelector("#color-picker");
+let eraser = document.querySelector("#eraser");
 let haveGridLines = true;
 let grid = document.querySelector(".grid");
 let gridChildren;
 let startColoring = false;
 let color = colorPicker.value;
+let eraserOn = false;
+let button = document.querySelector("button");
 
 function createGrid(gridSide) {
     grid.remove();
@@ -29,11 +32,21 @@ function createGrid(gridSide) {
     
         grid.appendChild(divContainer);
         gridChildren = Array.from(grid.getElementsByTagName('*'));
-        colorPicker.addEventListener("change", () => { color = colorPicker.value; });
+        colorPicker.addEventListener("change", () => { color = eraserOn ? "white" : colorPicker.value; });
+
+        eraser.addEventListener("change", () => {
+            if (eraser.checked) {
+                eraserOn = true;
+                color = "white";
+            } else {
+                eraserOn = false;
+                color = colorPicker.value;
+            }
+        });
 
         grid.addEventListener("mousedown", (e) => {
             startColoring = true;
-            color = colorPicker.value;
+            color = eraserOn ? "white" : colorPicker.value;
             e.target.style.backgroundColor = color; 
             e.target.style.borderColor = checkbox.checked ? "black" : color;
         })
@@ -75,6 +88,8 @@ checkbox.addEventListener("change", () => {
         gridChildren.forEach(div => { div.style.borderColor = window.getComputedStyle(div, null).getPropertyValue("background-color"); });
     }
 });
+
+button.addEventListener("click", () => createGrid(input.value));
 
 
 

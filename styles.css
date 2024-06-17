@@ -36,7 +36,14 @@ body {
 .options {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
+    text-align: center;
+}
+
+.horizontal-options {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
     text-align: center;
 }
 
@@ -49,7 +56,7 @@ body {
     border-radius: 8px;
 }
 
-p {
+.dimensions {
     font-size: 18px;
     margin: 0;
     margin-bottom: 8px;
@@ -61,6 +68,19 @@ input {
 
 label {
     color: black;
+}
+
+#color-picker {
+    height: 22px;
+}
+
+button {
+    background-color: gray;
+    color: white;
+    font-family: "Syne Mono", monospace, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 8px;
 }
 
 .grid {
