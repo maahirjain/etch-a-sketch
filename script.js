@@ -1,11 +1,12 @@
 let input = document.querySelector("input");
 let checkbox = document.querySelector("#grid-lines");
 let haveGridLines = true;
+let grid = document.querySelector(".grid");
 
 function createGrid(gridSide) {
-    document.querySelector(".grid").remove();
+    grid.remove();
 
-    let grid = document.createElement("div");
+    grid = document.createElement("div");
     grid.classList.add("grid");
     haveGridLines ? grid.style.border = "1px solid black" : grid.style.border = "2px solid black";
     document.querySelector(".sketch-area").appendChild(grid);
@@ -34,14 +35,14 @@ input.addEventListener("input", () => {
 });
 
 checkbox.addEventListener("change", () => {
-    let gridChildren = Array.from(document.querySelector(".grid").getElementsByTagName('*'));
+    let gridChildren = Array.from(grid.getElementsByTagName('*'));
     if (checkbox.checked) {
         haveGridLines = true;
-        document.querySelector(".grid").style.border = "1px solid black";
+        grid.style.border = "1px solid black";
         gridChildren.forEach(div => { return div.style.borderColor = "black"; });
     } else {
         haveGridLines = false;
-        document.querySelector(".grid").style.border = "2px solid black";
+        grid.style.border = "2px solid black";
         gridChildren.forEach(div => { return div.style.borderColor = "white"; });
     }
 });
