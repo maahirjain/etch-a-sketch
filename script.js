@@ -2,6 +2,8 @@ let input = document.querySelector("input");
 let checkbox = document.querySelector("#grid-lines");
 let haveGridLines = true;
 let grid = document.querySelector(".grid");
+let gridChildren;
+let startColoring = false;
 
 function createGrid(gridSide) {
     grid.remove();
@@ -28,6 +30,7 @@ function createGrid(gridSide) {
 }
 
 createGrid(16);
+gridChildren = Array.from(grid.getElementsByTagName('*'));
 
 input.addEventListener("input", () => {
     document.querySelector("p").textContent = `${input.value} x ${input.value}`;
@@ -35,7 +38,7 @@ input.addEventListener("input", () => {
 });
 
 checkbox.addEventListener("change", () => {
-    let gridChildren = Array.from(grid.getElementsByTagName('*'));
+    gridChildren = Array.from(grid.getElementsByTagName('*'));
     if (checkbox.checked) {
         haveGridLines = true;
         grid.style.border = "1px solid black";
@@ -45,4 +48,22 @@ checkbox.addEventListener("change", () => {
         grid.style.border = "2px solid black";
         gridChildren.forEach(div => { return div.style.borderColor = "white"; });
     }
+});
+
+grid.addEventListener("mousedown", (e) => {
+    startColoring = true;
+    e.target.style.backgroundColor = "black"; 
+})
+
+grid.addEventListener("mouseup", (e) => {
+    startColoring = false;
+})
+
+gridChildren.forEach(container => {
+   let containerChildren = Array.from(container.getElementsByTagName('*'));
+   containerChildren.forEach(div => {
+    div.addEventListener("mouseenter", () => {
+        if (startColoring) { div.style.backgroundColor = "black"; } 
+    });
+   })
 });
