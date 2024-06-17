@@ -1,3 +1,32 @@
+body {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-family: "Syne Mono", monospace, Arial, Helvetica, sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+.header, .footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 36px;
+    width: 224px;
+    padding: 48px;
+}
+
+.header {
+    background-color: #3b3b3b;
+}
+
+.footer {
+    background-color: darkgrey;
+}
+
 .sketch-area {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
