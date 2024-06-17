@@ -11,6 +11,4 @@ The webpage's features include:
 - Activating the eraser
 - Clearing the grid
 
-<br>
-<img src="./screenshots/gridlines_screenshot.png" alt="Buzz Sketch with grid lines" width="400px">
-<img src="./screenshots/nogridlines_screenshot.png" alt="Buzz Sketch without grid lines" width="400px">
+<img src="./screenshots/gridlines_screenshot.png" alt="Buzz Sketch with grid lines" width="400px"><img src="./screenshots/nogridlines_screenshot.png" alt="Buzz Sketch without grid lines" width="400px">
