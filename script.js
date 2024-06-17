@@ -35,7 +35,7 @@ function createGrid(gridSide) {
             startColoring = true;
             color = colorPicker.value;
             e.target.style.backgroundColor = color; 
-            e.target.style.borderColor = color;
+            e.target.style.borderColor = checkbox.checked ? "black" : color;
         })
         
         grid.addEventListener("mouseup", (e) => {
@@ -48,7 +48,7 @@ function createGrid(gridSide) {
              div.addEventListener("mouseenter", () => {
                  if (startColoring) { 
                     div.style.backgroundColor = color; 
-                    div.style.borderColor = color;
+                    div.style.borderColor = checkbox.checked ? "black" : color;;
                 } 
              });
             })
