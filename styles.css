@@ -89,3 +89,7 @@ button {
 .grid {
     display: flex;
 }
+
+a {
+    color: white;
+}
