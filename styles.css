@@ -23,6 +23,7 @@ body {
 }
 
 .footer {
+    flex-direction: column;
     background-color: gray;
 }
 
@@ -91,5 +92,6 @@ button {
 }
 
 a {
+    display: block;
     color: white;
 }
